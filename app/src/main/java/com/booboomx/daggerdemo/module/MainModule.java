@@ -1,7 +1,10 @@
 package com.booboomx.daggerdemo.module;
 
+import android.util.Log;
+
 import com.booboomx.daggerdemo.bean.Cloth;
 import com.booboomx.daggerdemo.bean.Clothes;
+import com.booboomx.daggerdemo.bean.Shoe;
 import com.booboomx.daggerdemo.scope.PerActivity;
 
 import dagger.Module;
@@ -16,6 +19,8 @@ import dagger.Provides;
  */
 @Module
 public class MainModule {
+
+    public static final String TAG="MainModule";
 
     // Providers 表明Module类中有哪些方法用来提供依赖对象的
 //    @Provides
@@ -64,10 +69,21 @@ public class MainModule {
     @PerActivity
     @Provides
     public Cloth getReadCloth(){
+        Log.i(TAG, "getReadCloth: ...");
         Cloth cloth=new Cloth();
         cloth.setColor("红色");
         return cloth;
     }
+
+
+    @PerActivity
+    @Provides
+    public Shoe getShoe(){
+        Log.i(TAG, "getShoe: ...");
+        return new Shoe();
+    }
+
+
 
 
 //    @PerActivity
