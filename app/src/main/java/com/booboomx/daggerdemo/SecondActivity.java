@@ -4,21 +4,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.booboomx.daggerdemo.app.BaseApplication;
-import com.booboomx.daggerdemo.bean.Cloth;
-import com.booboomx.daggerdemo.component.DaggerSecondComponent;
-import com.booboomx.daggerdemo.component.SecondComponent;
-import com.booboomx.daggerdemo.utils.ClothHandler;
+import com.booboomx.daggerdemo.bean.User;
 
 import javax.inject.Inject;
 
 public class SecondActivity extends AppCompatActivity {
 
     private TextView tv;
+//    @Inject
+//    Cloth blueCloth;
+//    @Inject
+//    ClothHandler clothHandler;
+
+
     @Inject
-    Cloth blueCloth;
-    @Inject
-    ClothHandler clothHandler;
+    User mUser;
 
 
 
@@ -33,12 +33,23 @@ public class SecondActivity extends AppCompatActivity {
 //     SecondComponent component= DaggerSecondComponent.builder().secondModule(new SecondModule()).build();
 //        component.inject(this);
 
-        SecondComponent builder= DaggerSecondComponent
-                .builder()
-                .baseComponent(BaseApplication.getInstance().getBaseComponent())
-                .build();
-        builder.inject(this);
-        tv.setText("蓝布料加工后变成了"+clothHandler.handle(blueCloth)+"\nclothHandler"+clothHandler);
+//        SecondComponent builder= DaggerSecondComponent
+//                .builder()
+//                .baseComponent(BaseApplication.getInstance().getBaseComponent())
+//                .build();
+//        builder.inject(this);
+//        tv.setText("蓝布料加工后变成了"+clothHandler.handle(blueCloth)+"\nclothHandler"+clothHandler);
+
+
+//        UserComponent component= DaggerUserComponent.create();
+//        UserComponent component= BaseApplication.getInstance().getUserComponent();
+//        component.inject(this);
+
+//        UserComponent component=UserComponent.getInstance();
+//        component.inject(this);
+
+//        tv.setText(mUser.toString()+"\n"+component.toString());
+
 
     }
 }

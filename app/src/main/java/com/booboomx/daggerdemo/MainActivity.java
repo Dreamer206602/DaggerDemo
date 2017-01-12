@@ -3,24 +3,16 @@ package com.booboomx.daggerdemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.booboomx.daggerdemo.app.BaseApplication;
-import com.booboomx.daggerdemo.bean.Cloth;
-import com.booboomx.daggerdemo.bean.Clothes;
-import com.booboomx.daggerdemo.bean.Shoe;
-import com.booboomx.daggerdemo.component.DaggerMainComponent;
-import com.booboomx.daggerdemo.component.MainComponent;
-import com.booboomx.daggerdemo.module.MainModule;
-import com.booboomx.daggerdemo.utils.ClothHandler;
+import com.booboomx.daggerdemo.bean.Food;
+import com.booboomx.daggerdemo.bean.Money;
+import com.booboomx.daggerdemo.component.DaggerPackComponent;
+import com.booboomx.daggerdemo.module.UserModule;
 
 import javax.inject.Inject;
-import javax.inject.Provider;
-
-import dagger.Lazy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
 //    @Inject
 //    Shoe shoe;
 
-    @Inject
-    Clothes clothes;
+//    @Inject
+//    Clothes clothes;
 
-    @Inject
-    Lazy<Cloth>redCloth;
+//    @Inject
+//    Lazy<Cloth>redCloth;
 
-    @Inject
-    Provider<Shoe>shoe;
+//    @Inject
+//    Provider<Shoe>shoe;
 
 
 //    @Inject
@@ -53,8 +45,21 @@ public class MainActivity extends AppCompatActivity {
 //    @Inject
 //    Cloth redCloth;
 
+//    @Inject
+//    ClothHandler clothHandler;
+
+//    @Inject
+//    User mUser1;
+
+//    @Inject
+//    User mUser2;
+
     @Inject
-    ClothHandler clothHandler;
+    Money mMoney;
+
+    @Inject
+    Food mFood;
+
 
 
     private Button btn;
@@ -91,22 +96,43 @@ public class MainActivity extends AppCompatActivity {
 
 //        BaseApplication.getInstance().getBaseComponent().getSubMainComponent(new MainModule()).inject(this);
 
-        MainComponent component= DaggerMainComponent.builder().baseComponent(BaseApplication.getInstance().getBaseComponent()).mainModule(new MainModule()).build();
-        component.inject(this);
+//        MainComponent component= DaggerMainComponent.builder().baseComponent(BaseApplication.getInstance().getBaseComponent()).mainModule(new MainModule()).build();
+//        component.inject(this);
 
-        Log.d(TAG, "inject done... ");
-        Log.d(TAG, "1 use redCloth instance ..");
-        Log.d(TAG, "redCloth:" + redCloth.get());
-        Log.d(TAG, "2 use redCloth instance ..");
-        Log.d(TAG, "redCloth:" + redCloth.get());
-        Log.d(TAG, "1 use shoe instance ..");
-        Log.d(TAG, "shoe:" + shoe.get());
-        Log.d(TAG, "2 use shoe instance ..");
-        Log.d(TAG, "shoe:" + shoe.get());
+//        Log.d(TAG, "inject done... ");
+//        Log.d(TAG, "1 use redCloth instance ..");
+//        Log.d(TAG, "redCloth:" + redCloth.get());
+//        Log.d(TAG, "2 use redCloth instance ..");
+//        Log.d(TAG, "redCloth:" + redCloth.get());
+//        Log.d(TAG, "1 use shoe instance ..");
+//        Log.d(TAG, "shoe:" + shoe.get());
+//        Log.d(TAG, "2 use shoe instance ..");
+//        Log.d(TAG, "shoe:" + shoe.get());
 
 
 
 //        tv.setText("红布料加工变成了"+clothHandler.handle(redCloth)+"\nclothHandler地址"+clothHandler);
+
+
+//        UserComponent component=
+
+//       UserComponent component= DaggerUserComponent.builder().userModule(new UserModule()).build();
+//        UserComponent component= BaseApplication.getInstance().getUserComponent();
+//        component.inject(this);
+
+//        UserComponent component=UserComponent.getInstance();
+//        component.inject(this);
+
+        DaggerPackComponent.create().userComponent(new UserModule()).inject(this);
+//        DaggerUserComponent.builder().packComponent(component).build().inject(this);
+
+
+        tv.setText(mMoney.toString()+"\n"+mFood.toString());
+
+
+
+//        tv.setText(mUser1.toString()+"\n"+mUser2.toString()+"\n"+component.toString());
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {

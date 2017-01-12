@@ -1,6 +1,5 @@
 package com.booboomx.daggerdemo.component;
 
-import com.booboomx.daggerdemo.MainActivity;
 import com.booboomx.daggerdemo.module.MainModule;
 import com.booboomx.daggerdemo.scope.PerActivity;
 
@@ -12,5 +11,5 @@ import dagger.Component;
 @PerActivity
 @Component(modules = MainModule.class,dependencies = BaseComponent.class)
 public interface MainComponent {
-    void  inject(MainActivity mainActivity);
+//    void  inject(MainActivity mainActivity);
 }
