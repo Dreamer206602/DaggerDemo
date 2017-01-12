@@ -2,28 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_scond"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.booboomx.daggerdemo.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.booboomx.daggerdemo.SecondActivity">
+
 
     <TextView
-        android:layout_margin="20dp"
         android:layout_gravity="center"
         android:id="@+id/tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        />
-
-
-    <Button
-        android:text="点击"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 
 </LinearLayout>
